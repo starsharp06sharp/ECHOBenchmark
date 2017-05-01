@@ -33,7 +33,7 @@ def echo_request(host, port, msg, repeat_times):
 
 
 def main(conn_num=1024, host='localhost', port=7, echo_msg="Hello, this is a test", repeat_times=16):
-    p = Pool(4)
+    p = Pool()
     res = []
     for i in range(conn_num):
         res.append(
