@@ -1,6 +1,6 @@
 CFLAGS := -I headers -Wall -O2 -std=c99
 
-all: server_block server_fork server_pthread server_prefork server_select server_poll server_epoll
+all: server_block server_fork server_pthread server_prefork server_select server_poll server_epoll server_prefork_epoll
 
 server_block: block_server/main.c
 	$(CC) block_server/main.c -o server_block $(CFLAGS)
@@ -22,6 +22,9 @@ server_poll: poll_server/main.c
 
 server_epoll: epoll_server/main.c
 	$(CC) epoll_server/main.c -o server_epoll $(CFLAGS)
+
+server_prefork_epoll: prefork_epoll_server/main.c
+	$(CC) prefork_epoll_server/main.c -o server_prefork_epoll $(CFLAGS)
 
 .PHONY: clean
 clean:
