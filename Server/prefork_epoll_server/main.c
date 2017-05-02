@@ -67,7 +67,7 @@ int main(int argc, char **argv)
             if (event_sock == msock) {
                 ssock = accept(msock, (struct sockaddr *)&fsin, &alen);
                 if (ssock < 0) {
-                    // errexit(-1, "accept: %s\n", strerror(errno));
+                    // perror("accept");
                     continue;
                 }
                 event.data.fd = ssock;
