@@ -4,6 +4,7 @@ import fire
 import time
 import sys
 import socket
+import traceback
 from multiprocessing import Pool
 
 if sys.platform == 'win32':
@@ -49,6 +50,7 @@ def main(conn_num=1024, host='localhost', port=7, echo_msg="Hello, this is a tes
             t = res[i].get(timeout=1)
         except Exception, e:
             print 'Error when do request!'
+            traceback.print_exc()
         else:
             tot_time += t
             count += 1
